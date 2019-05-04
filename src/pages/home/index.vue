@@ -5,15 +5,8 @@
     </header>
     <scroll>
       <home-slider></home-slider>
-      <home-slider></home-slider>
-      <home-slider></home-slider>
-      <home-slider></home-slider>
-      <home-slider></home-slider>
-      <home-slider></home-slider>
-      <home-slider></home-slider>
-      <home-slider></home-slider>
-      <home-slider></home-slider>
-      <home-slider></home-slider>
+      <home-nav></home-nav>
+      <home-recommend></home-recommend>
     </scroll>
     <div class="g-backtop-container"></div>
     <router-view></router-view>
@@ -23,7 +16,9 @@
 <script>
   import HomeHeader from './header';
   import HomeSlider from './slider';
-  import Scroll from 'base/scroll'
+  import Scroll from 'base/scroll';
+  import HomeNav from './nav'
+  import HomeRecommend from './recommend'
 
   export default {
     name: "Home",
@@ -31,6 +26,8 @@
       HomeHeader,
       HomeSlider,
       Scroll,
+      HomeNav,
+      HomeRecommend,
     }
   }
 </script>

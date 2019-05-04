@@ -1,13 +1,51 @@
 <template>
-
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item" v-for="(item,index) in navs" :key="index">
+        <a :href="item.linkUrl" class="nav-link">
+          <img :src="item.picUrl" alt="" class="nav-pic">
+          <span v-text="item.text"></span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script>
-    export default {
-        name: "nav"
+  import {navItems} from './config';
+  export default {
+    name: "HomeNav",
+    created() {
+      this.navs = navItems
     }
+  }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  @import "~assets/css/mixins";
 
+  .nav {
+    width: 100%;
+    padding-top: 15px;
+    background-color: white;
+
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &-item {
+      width: 20%;
+      margin-bottom: 15px;
+    }
+
+    &-link {
+      @include flex-center(column)
+    }
+
+    &-pic {
+      width: 60%;
+      margin-bottom: 8px;
+    }
+  }
 </style>

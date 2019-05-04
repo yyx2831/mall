@@ -1,12 +1,12 @@
 import axios from 'axios'
-import {SUCC_CODE, TIMEOUT} from "@/api/config";
+import jsonp from 'assets/js/jsonp'
+import {HOME_RECOMMEND_PAGE_SIZE, jsonpOptions, SUCC_CODE, TIMEOUT} from "@/api/config";
 
 //获取幻灯片数据--ajax
 export const getHomeSlider = () => {
   return axios.get('http://www.imooc.com/api/home/slider', {
     timeout: TIMEOUT   //可以设置一个timeout10毫秒测试接收不到数据到情况
   }).then(res => {
-    console.log('then1');
     if (res.data.code === SUCC_CODE) {
       return res.data.slider;
     }
@@ -22,12 +22,29 @@ export const getHomeSlider = () => {
       }
     ]
   }).then(data => {
-    console.log('then2');
-    console.log(data);
     return new Promise(resolve => {
-      setTimeout(()=>{
+      setTimeout(() => {
         resolve(data);
-      },0)
+      }, 1000)
     })
   });
+};
+
+//获取热门推荐数据
+export const getHomeRecommend = (page = 1, psize = HOME_RECOMMEND_PAGE_SIZE) => {
+  const url = 'https://ju.taobao.com/json/tg/ajaxGetItemsV2.json';
+  const params = {
+    page,
+    psize,
+    type: 0,
+    frontCatId: ''
+  };
+  return jsonp(url, params, jsonpOptions).then(res => {
+    if (res.code === '200') {
+      return res;
+    }
+    throw new Error('没有成功获取到数据!')
+  }).catch(err => {
+    console.log(err);
+  })
 };

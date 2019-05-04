@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "fastclick": "^1.0.6",
+    "jsonp": "^0.2.1",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "vue": "^2.5.2",
