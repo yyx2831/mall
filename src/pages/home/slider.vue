@@ -1,19 +1,19 @@
 <template>
   <div class="slider-wapper">
-    <loading></loading>
-<!--    <my-swiper-->
-<!--      :data="sliders"-->
-<!--      :direction="direction"-->
-<!--      :loop="loop"-->
-<!--      :interval="interval"-->
-<!--      :pagination="pagination"-->
-<!--      v-if="sliders.length">-->
-<!--      <swiper-slide v-for="(item, index) in sliders" :key="index">-->
-<!--        <a :href="item.linkUrl" class="slider-link">-->
-<!--          <img :src="item.picUrl" alt="" class="slider-img">-->
-<!--        </a>-->
-<!--      </swiper-slide>-->
-<!--    </my-swiper>-->
+    <loading v-if="!sliders.length"></loading>
+    <my-swiper
+      :data="sliders"
+      :direction="direction"
+      :loop="loop"
+      :interval="interval"
+      :pagination="pagination"
+      v-else>
+      <swiper-slide v-for="(item, index) in sliders" :key="index">
+        <a :href="item.linkUrl" class="slider-link">
+          <img :src="item.picUrl" alt="" class="slider-img">
+        </a>
+      </swiper-slide>
+    </my-swiper>
   </div>
 </template>
 

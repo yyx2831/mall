@@ -1,11 +1,20 @@
 <template>
   <div class="home">
     <header class="g-header-container">
-      <home-header ></home-header>
+      <home-header></home-header>
     </header>
-    <div>
+    <scroll>
       <home-slider></home-slider>
-    </div>
+      <home-slider></home-slider>
+      <home-slider></home-slider>
+      <home-slider></home-slider>
+      <home-slider></home-slider>
+      <home-slider></home-slider>
+      <home-slider></home-slider>
+      <home-slider></home-slider>
+      <home-slider></home-slider>
+      <home-slider></home-slider>
+    </scroll>
     <div class="g-backtop-container"></div>
     <router-view></router-view>
   </div>
@@ -14,11 +23,14 @@
 <script>
   import HomeHeader from './header';
   import HomeSlider from './slider';
+  import Scroll from 'base/scroll'
+
   export default {
     name: "Home",
-    components:{
+    components: {
       HomeHeader,
-      HomeSlider
+      HomeSlider,
+      Scroll,
     }
   }
 </script>
