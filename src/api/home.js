@@ -25,7 +25,7 @@ export const getHomeSlider = () => {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve(data);
-      }, 1000)
+      }, 10000)
     })
   });
 };

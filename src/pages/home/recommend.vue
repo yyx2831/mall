@@ -6,8 +6,7 @@
           v-for="(item,index) in recommends" :key="index">
         <router-link
           class="recommend-link"
-          :to="{name: 'home-product', params: {id: item.baseinfo.itemId}}"
-        >
+          :to="{name: 'home-product', params: {id: item.baseinfo.itemId}}">
           <p class="recommend-pic"><img class="recommend-img" :src="item.baseinfo.picUrlNew"></p>
           <p class="recommend-name">{{item.name.shortName}}</p>
           <p class="recommend-origPrice">
@@ -81,17 +80,17 @@
       &:after {
         right: 0;
       }
-      &-list{
-        @include flex-between();
-        flex-wrap: wrap;
-      }
-      &-item{
-        width: 49%;
-        background-color: white;
-      }
-      &-img{
-        width: 100%;
-      }
+    }
+    &-list{
+      @include flex-between();
+      flex-wrap: wrap;
+    }
+    &-item{
+      width: 49%;
+      background-color: white;
+    }
+    &-img{
+      width: 100%;
     }
   }
 </style>
